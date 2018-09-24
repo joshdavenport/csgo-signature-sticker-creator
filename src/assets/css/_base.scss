@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    /*background: url(/assets/images/background.jpg) center/cover no-repeat #fff;*/
+    font-family: Monda, Arial, sans-serif;
+    user-select: none;
+}
+
+label {
+	text-transform: uppercase;
+}
+
+footer {
+	padding: 2.5em;
+	font-size: 1em;
+	color: #fff;
+	text-align: center;
+}
+
+footer p:last-child {
+	margin-bottom: 0;
+}
