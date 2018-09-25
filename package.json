@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --progress --colors"
+    "start": "webpack-dev-server --progress --colors --config webpack.config.dev.js",
+    "build": "webpack --config webpack.config.prod.js"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
     "url-loader": "^1.1.1",
     "webpack": "^4.20.1",
     "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.9"
+    "webpack-dev-server": "^3.1.9",
+    "webpack-merge": "^4.1.4"
   }
 }

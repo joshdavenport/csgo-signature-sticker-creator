@@ -2,7 +2,6 @@ var path = require('path'),
     webpack = require('webpack');
 
 module.exports = {
-	mode: 'development',
 	entry: [
 		"webpack-dev-server/client?http://localhost:8181/",
 		"./src/index.js"
