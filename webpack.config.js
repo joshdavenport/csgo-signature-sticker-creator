@@ -2,14 +2,13 @@ var path = require('path'),
     webpack = require('webpack');
 
 module.exports = {
+	mode: 'development',
 	entry: [
 		"webpack-dev-server/client?http://localhost:8181/",
-		"bootstrap-loader",
 		"./src/index.js"
 	],
 	output: {
 		path: path.resolve(__dirname, "public"),
-		//publicPath: 'http://localhost:8080'
 		publicPath: "/assets/",
 		filename: "bundle.js"
 	},
@@ -20,28 +19,40 @@ module.exports = {
 		inline: true
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 		        test: /\.scss$/,
 		        include: /src/,
-		        loaders: [
-		            'style',
-		            'css',
-		            'autoprefixer?browsers=last 3 versions',
-		            'sass?outputStyle=expanded'
+		        use: [
+		            {
+	            		loader: 'style-loader'
+	            	},
+		            {
+		            	loader: 'css-loader'
+		            },
+		            {
+		            	loader: 'postcss-loader',
+		            	options: {
+		            		plugins: function () {
+		            			return [
+		            				require('autoprefixer')
+		            			];
+		            		}
+		            	}
+		            },
+		            {
+		            	loader: 'sass-loader'
+		            }
 		        ]
 		    },
 			{
 				test: /\.jsx?$/,
-				loader: 'babel-loader',
-				exclude: /node_modules/,
-				query: {
-					presets: ['es2015']
-       			}
+				use: 'babel-loader',
+				exclude: /node_modules/
 			},
 			{ 
 				test: /\.(woff2?|ttf|eot|svg)$/, 
-				loader: 'url?limit=10000'
+				use: 'url?limit=10000'
 			}
 		]
 	},
@@ -50,7 +61,7 @@ module.exports = {
 		new webpack.ProvidePlugin({
 	        jQuery: 'jquery',
 	        $: 'jquery',
-	        jquery: 'jquery'
+	        'window.jQuery': 'jquery',
 	    })
 	]
 };
