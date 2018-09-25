@@ -10,13 +10,9 @@ body {
 body {
     padding-top: 50px;
     padding-bottom: 20px;
-    /*background: url(/assets/images/background.jpg) center/cover no-repeat #fff;*/
+    background: url(/assets/images/background.jpg) center/cover no-repeat #fff;
     font-family: Monda, Arial, sans-serif;
     user-select: none;
-}
-
-label {
-	text-transform: uppercase;
 }
 
 footer {
@@ -24,8 +20,8 @@ footer {
 	font-size: 1em;
 	color: #fff;
 	text-align: center;
-}
 
-footer p:last-child {
-	margin-bottom: 0;
+    p:last-child {
+        margin-bottom: 0;
+    }
 }

@@ -24,17 +24,17 @@ class InterfaceBackground {
 				.removeClass('hidden');
 
 		if(this.bgTypeDropdown.value == 'transparent') {
-			this.canvas.Base.color = 'transparent';
+			this.stickerGenerator.canvas.base.color = 'transparent';
 		} else {
 			// this.interface.Background.bgTypeDropdown.handleBgColorChange({ color: this.interface.Background.bgColorInput.value });
 			$(this.bgColorInput).trigger('change');
 		}
-		this.canvas.loadBase();
+		this.stickerGenerator.canvas.loadBase();
 	}
 
 	handleBgColorChange (e) {
-		this.canvas.Base.color = e.color.toHex();
-		this.canvas.loadBase();
+		this.stickerGenerator.canvas.base.color = e.color.toHex();
+		this.stickerGenerator.canvas.loadBase();
 	}
 
 }

@@ -6,15 +6,9 @@
 		<title>CS:GO Major Signature Sticker Generator</title>
 	</head>
 	<body>
-		<div class="container" id="app">
-		  <!-- Example row of columns -->
-
-
-
-
-		<div class="row">
-		    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-		        <div id="canvas-container">
+		<div id="app">
+			<div id="canvas-container">
+		        <div id="canvas">
 		            <img src="assets/images/placeholder.png" id="image-placeholder">
 		            <img id="sticker-img" width="228" height="226">
 		            <canvas id="canvas-base"></canvas>
@@ -25,95 +19,86 @@
 		            <canvas id="canvas-composite"></canvas>
 		        </div>
 		    </div>
-		    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-		        <div class="panel panel-default">
-		            <div class="panel-heading">Sticker</div>
-		            <div class="panel-body">
-		                <div class="form-group">
-		                    <label for="config-major">Major</label>
-		                    <div class="input-group col-md-10">
-		                        <select id="config-major" class="form-control">
-		                            <option value="">Select a Major</option>
-		                        </select>
-		                    </div>
-		                </div>
-		                <div class="form-group">
-		                    <label for="config-team">Team</label>
-		                    <div class="input-group col-md-10">
-		                        <select id="config-team" class="form-control">
-		                            <option value="">Select a Team</option>
-		                        </select>
-		                    </div>
-		                </div>
-		            </div>
+	        <div id="control-panel">
+		        <div class="card">
+		        	<div class="card-body">
+		        		<h2 class="card-title">Sticker</h2>
+		        	
+        			    <div class="form-group">
+        			        <label for="config-major">Major</label>
+        			        <div class="input-group">
+        			            <select id="config-major" class="form-control">
+        			                <option value="">Select a Major</option>
+        			            </select>
+        			        </div>
+        			    </div>
+        			    <div class="form-group">
+        			        <label for="config-team">Team</label>
+        			        <div class="input-group">
+        			            <select id="config-team" class="form-control">
+        			                <option value="">Select a Team</option>
+        			            </select>
+        			        </div>
+        			    </div>
+	        		</div>
 		        </div>
 
-		        <div class="panel panel-default">
-		            <div class="panel-heading">Drawing</div>
-		            <div class="panel-body">
-		                <div class="form-group">
-		                    <label for="config-bg-color">Brush Size</label>
-		                    <div class="input-group">
-		                        <input id="config-size-range" type="range" min="1" max="8" value="1"/>
-		                        <input id="config-size-text" type="text" value="1"/>
-		                    </div>
-		                </div>
-		                <div class="form-group">
-		                    <div class="input-group btn-toolbar">
-		                        <button class="btn btn-default" type="button" id="button-undo">Undo</button>
-		                        <button class="btn btn-danger" type="button" id="button-clear">Clear</button>
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-
-		    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-		        <div class="panel panel-default">
-		            <div class="panel-heading">Background</div>
-		            <div class="panel-body">
-		                <div class="form-group">
-		                    <label for="config-bg-type">Type</label>
-		                    <div class="input-group col-md-10">
-		                        <select id="config-bg-type" class="form-control">
-		                            <option value="color" selected>Color</option>
-		                            <option value="transparent">Transparent</option>
-		                        </select>
-		                    </div>
-		                </div>
-		                <div class="form-group form-group-bg form-group-bg-color">
-		                    <label for="config-bg-color">Color</label>
-		                    <div class="input-group color-pick">
-		                        <input type="text" id="config-bg-color" value="" class="form-control" />
-		                        <span class="input-group-addon"><i></i></span>
-		                    </div>
-		                </div>
-		            </div>
+		        <div class="card">
+		        	<div class="card-body">
+		        		<h2 class="card-title">Drawing</h2>
+		        	
+        			    <div class="form-group">
+        			        <label for="config-bg-color">Brush Size</label>
+        			        <div class="input-group">
+        			            <input id="config-size-range" type="range" min="1" max="8" value="1"/>
+        			            <input id="config-size-text" type="text" value="1"/>
+        			        </div>
+        			    </div>
+        			    <div class="form-group">
+        			        <div class="input-group btn-toolbar">
+        			            <button class="btn btn-secondary" type="button" disabled="disabled" id="button-undo">Undo</button>
+        			            <button class="btn btn-secondary" type="button" id="button-clear">Clear</button>
+        			        </div>
+        			    </div>
+	        		</div>
 		        </div>
 
-		        <div class="panel panel-default">
-		            <div class="panel-heading">Save</div>
-		            <div class="panel-body">
-		                <div class="form-group">
-		                    <div class="input-group">
-		                        <a rel="button" class="btn btn-md btn-success" id="button-download" download="csgo-sticker.png">Download as Image</a>
-		                    </div>
-		                </div>
-		                <p class="">The image will be downloaded as a PNG image for you. Enjoy!</p>
-		            </div>
+		        <div class="card">
+		        	<div class="card-body">
+		        		<h2 class="card-title">Background</h2>
+		        	
+        			    <div class="form-group">
+        			        <label for="config-bg-type">Type</label>
+        			        <div class="input-group">
+        			            <select id="config-bg-type" class="form-control">
+        			                <option value="color" selected>Color</option>
+        			                <option value="transparent">Transparent</option>
+        			            </select>
+        			        </div>
+        			    </div>
+        			    <div class="form-group form-group-bg form-group-bg-color">
+        			        <label for="config-bg-color">Color</label>
+        			        <div class="input-group color-pick">
+        			            <input type="text" id="config-bg-color" value="" class="form-control" />
+        			            <span class="input-group-addon"><i></i></span>
+        			        </div>
+        			    </div>
+	        		</div>
 		        </div>
-		    </div>
-		</div>
 
-		<div class="row">
-		    <div class="col-md-12">
-		        <p></p>
-		    </div>
-		</div>
-
-		  <footer>
-		    <p>Thanks to Valve</p>
-		  </footer>
+		        <div class="card">
+		        	<div class="card-body">
+		        		<h2 class="card-title">Save</h2>
+		        	
+        			    <div class="form-group">
+        			        <div class="input-group">
+        			            <button type="button" class="btn btn-primary" id="button-download" download="csgo-sticker.png">Download as Image</a>
+        			        </div>
+        			    </div>
+        			    <p class="">The image will be downloaded as a PNG image for you. Enjoy!</p>
+	        		</div>
+		        </div>
+			</div>
 		</div> <!-- /container -->   
 
 		<script src="/assets/bundle.js"></script>

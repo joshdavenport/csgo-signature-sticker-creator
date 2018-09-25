@@ -89,7 +89,7 @@ class Canvas {
 	// Getter for canvas elements
     get element () {
 		return {
-			$container: $('#canvas-container'),
+			$container: $('#canvas'),
 			base: document.getElementById('canvas-base'),
 			line: document.getElementById('canvas-line'),
 			shadow: document.getElementById('canvas-shadow'),
